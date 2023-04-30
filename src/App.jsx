@@ -1,9 +1,10 @@
 import React from "react";
 import Modelos from "./Threejs/components/Modelos";
+import ModeloEjemplo2 from "./Threejs/components/ModeloEjemplo2";
 const App = () => {
     return (
         <>
-            <Modelos />
+            <ModeloEjemplo2 />
         </>
     );
 };

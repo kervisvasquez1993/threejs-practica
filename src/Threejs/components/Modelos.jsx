@@ -12,6 +12,7 @@ const Modelos = () => {
         const { clientWidth: width, clientHeight: height } = currentRef;
         // crear scena
         const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xffff)
         // crear camara
         const camara = new THREE.PerspectiveCamera(
             25,
