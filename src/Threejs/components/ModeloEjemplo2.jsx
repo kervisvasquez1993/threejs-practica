@@ -40,15 +40,33 @@ const ModeloEjemplo2 = () => {
             normalMap: normalMap,
             displacementMap: heightMap,
             // wireframe : true
-            displacementScale : 0.07
+            displacementScale: 0.07,
         });
         // const test = new THREE.MeshBasicMaterial({ color: 0xff0000, transparent : true, opacity : 0.3, wireframe : true })
         const cube = new THREE.Mesh(geometry, material);
         cube.scale.set(2, 2, 2);
         scene.add(cube);
         // luces ambiants
-        const AO = new THREE.AmbientLight(0xffffff, 1);
+        const AO = new THREE.AmbientLight(0xffffff, 0.5);
         scene.add(AO);
+        const pontLingth = new THREE.PointLight(0xff0000, 1.2);
+        pontLingth.position.y = 2;
+        // scene.add(pontLingth);
+        const directionalLight = new THREE.DirectionalLight(0xff0000, 1.3);
+        directionalLight.position.set(5, 1, 5);
+        scene.add(directionalLight);
+        const enviorment = new THREE.CubeTextureLoader();
+        const envMap = enviorment.load([
+            "./envmap/px.png",
+            "./envmap/nx.png",
+            "./envmap/py.png",
+            "./envmap/ny.png",
+            "./envmap/pz.png",
+            "./envmap/nz.png",
+        ]);
+
+        scene.environment = envMap;
+        scene.background = envMap;
 
         // sheper
         // const geometry = new THREE.SphereGeometry(0.8, 32, 16);
